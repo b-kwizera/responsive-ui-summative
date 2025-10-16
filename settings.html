@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Configure your currency preferences and spending caps for Student Finance Tracker.">
+  <title>Settings - Student Finance Tracker</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <h1>Student Finance Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="settings.html" class="active" aria-current="page">Settings</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="settings" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">Application Settings</h2>
+      <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Customize your currency preferences and set spending limits to stay within budget.</p>
+      
+      <form id="settings-form" novalidate>
+        <div>
+          <label for="base-currency">
+            Base Currency:
+            <small style="display: block; color: var(--color-text-muted); font-weight: normal; margin-top: 0.25rem;">
+              Enter the currency code for your transactions (e.g., USD, EUR, GBP)
+            </small>
+          </label>
+          <input 
+            type="text" 
+            id="base-currency" 
+            name="base-currency"
+            value="USD"
+            placeholder="USD"
+            pattern="[A-Z]{3}"
+            maxlength="3"
+            aria-describedby="currency-help">
+          <small id="currency-help" style="display: block; color: var(--color-text-muted); margin-top: 0.25rem;">
+            Use 3-letter ISO currency codes (e.g., USD, EUR, GBP, CAD)
+          </small>
+        </div>
+        
+        <div>
+          <label for="currency-rate-1">
+            Currency 2 Exchange Rate:
+            <small style="display: block; color: var(--color-text-muted); font-weight: normal; margin-top: 0.25rem;">
+              Conversion rate from your base currency to a secondary currency
+            </small>
+          </label>
+          <input 
+            type="number" 
+            id="currency-rate-1" 
+            name="currency-rate-1"
+            step="0.01" 
+            min="0"
+            value="1"
+            placeholder="1.00"
+            aria-describedby="rate1-help">
+          <small id="rate1-help" style="display: block; color: var(--color-text-muted); margin-top: 0.25rem;">
+            Example: If base is USD and you want to track in EUR, enter the USD to EUR rate
+          </small>
+        </div>
+        
+        <div>
+          <label for="currency-rate-2">
+            Currency 3 Exchange Rate:
+            <small style="display: block; color: var(--color-text-muted); font-weight: normal; margin-top: 0.25rem;">
+              Conversion rate from your base currency to another currency
+            </small>
+          </label>
+          <input 
+            type="number" 
+            id="currency-rate-2" 
+            name="currency-rate-2"
+            step="0.01" 
+            min="0"
+            value="1"
+            placeholder="1.00">
+        </div>
+        
+        <div>
+          <label for="cap">
+            Monthly Spending Cap:
+            <small style="display: block; color: var(--color-text-muted); font-weight: normal; margin-top: 0.25rem;">
+              Set a budget limit to track when you're approaching or exceeding your spending goals
+            </small>
+          </label>
+          <input 
+            type="number" 
+            id="cap" 
+            name="cap"
+            step="0.01" 
+            min="0"
+            value="0"
+            placeholder="0.00"
+            aria-describedby="cap-help">
+          <small id="cap-help" style="display: block; color: var(--color-text-muted); margin-top: 0.25rem;">
+            Leave at 0 for no cap. The dashboard will show remaining budget and alert you if you go over.
+          </small>
+        </div>
+        
+        <button type="submit">Save Settings</button>
+      </form>
+      
+      <div style="margin-top: 2rem; padding: 1rem; background: var(--color-surface-hover); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary);">
+        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">You MUST know THIS</h3>
+        <p style="margin: 0; color: var(--color-text-muted);">
+          Your settings are saved locally in your browser. They won't be lost when you close the tab, but they won't sync across different devices either. Use the export feature on the Dashboard to backup your data!
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Student Finance Tracker | Built by Bodgar's FIngers</p>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="scripts/ui.js"></script>
+</body>
+</html>

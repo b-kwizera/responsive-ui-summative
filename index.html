@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your finances, manage budgets, and monitor spending with our student-friendly finance tracker. Features include regex search, JSON import/export, and spending caps.">
+  <title>Student Finance Tracker - Dashboard</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Nav -->
+  <header>
+    <h1>Student Finance Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Dashboard</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+    <!-- Stats cards -->
+    <section id="dashboard" aria-labelledby="dashboard-heading" class="cards">
+      <h2 id="dashboard-heading">Dashboard Overview</h2>
+      <div class="card">
+        <h3>Total Records</h3>
+        <p id="total-records" role="status" aria-live="polite">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Amount</h3>
+        <p id="total-amount" role="status" aria-live="polite">0.00</p>
+      </div>
+      <div class="card">
+        <h3>Top Category</h3>
+        <p id="top-category" role="status" aria-live="polite">N/A</p>
+      </div>
+      <div class="card">
+        <h3>Last 7 Days</h3>
+        <p id="last7-days" role="status" aria-live="polite">0.00</p>
+      </div>
+      <div class="card">
+        <h3>Cap Status</h3>
+        <p id="cap-status" role="status" aria-live="polite">No cap set</p>
+      </div>
+    </section>
+
+    <!-- Records table -->
+    <section id="records" aria-labelledby="records-heading">
+      <h2 id="records-heading">Transaction Records</h2>
+      
+      <!-- Search -->
+      <div id="search">
+        <label for="search-input">🔍 Search (Regex):</label>
+        <input type="text" id="search-input" aria-describedby="search-help" placeholder="e.g., ^Food or coffee.*">
+        <small id="search-help">Type a regex pattern to highlight and filter matches in description and category.</small>
+      </div>
+      
+      <!-- Import/Export -->
+      <div id="import-export">
+        <input type="file" id="import-json" accept=".json" aria-label="Import records from JSON file">
+        <button id="export-json">Export JSON</button>
+      </div>
+      
+      <!-- Table -->
+      <table id="records-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Add/Edit Form -->
+    <section id="add-edit" aria-labelledby="add-edit-heading">
+      <h2 id="add-edit-heading">Add New Record</h2>
+      <form id="record-form" novalidate>
+        <div>
+          <label for="description">Description:</label>
+          <input 
+            type="text" 
+            id="description" 
+            name="description"
+            required 
+            placeholder="e.g., Lunch at cafeteria"
+            aria-required="true">
+        </div>
+        <div>
+          <label for="amount">Amount:</label>
+          <input 
+            type="number" 
+            id="amount" 
+            name="amount"
+            step="0.01" 
+            min="0"
+            required 
+            placeholder="0.00"
+            aria-required="true">
+        </div>
+        <div>
+          <label for="category">Category:</label>
+          <select id="category" name="category" required aria-required="true">
+            <option value="Food">Food</option>
+            <option value="Books">Books</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Fees">Fees</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Date:</label>
+          <input 
+            type="date" 
+            id="date" 
+            name="date"
+            required 
+            aria-required="true">
+        </div>
+        <button type="submit">Save Record</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Student Finance Tracker | Built by Bodgar's Fingers</p>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Set today's date as default in the date input
+    const dateInput = document.getElementById('date');
+    if (dateInput && !dateInput.value) {
+      dateInput.value = new Date().toISOString().split('T')[0];
+    }
+  </script>
+  <script type="module" src="scripts/ui.js"></script>
+</body>
+</html>

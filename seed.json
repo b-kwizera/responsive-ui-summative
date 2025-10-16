@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rec_seed_1",
+    "description": "Campus cafeteria lunch",
+    "amount": 12.50,
+    "category": "Food",
+    "date": "2025-01-10",
+    "createdAt": "2025-01-10T12:30:00Z",
+    "updatedAt": "2025-01-10T12:30:00Z"
+  },
+  {
+    "id": "rec_seed_2",
+    "description": "Coffee with study group",
+    "amount": 5.75,
+    "category": "Food",
+    "date": "2025-01-11",
+    "createdAt": "2025-01-11T14:20:00Z",
+    "updatedAt": "2025-01-11T14:20:00Z"
+  },
+  {
+    "id": "rec_seed_3",
+    "description": "Programming textbook",
+    "amount": 89.99,
+    "category": "Books",
+    "date": "2025-01-12",
+    "createdAt": "2025-01-12T09:15:00Z",
+    "updatedAt": "2025-01-12T09:15:00Z"
+  },
+  {
+    "id": "rec_seed_4",
+    "description": "Monthly bus pass",
+    "amount": 55.00,
+    "category": "Transport",
+    "date": "2025-01-13",
+    "createdAt": "2025-01-13T08:00:00Z",
+    "updatedAt": "2025-01-13T08:00:00Z"
+  },
+  {
+    "id": "rec_seed_5",
+    "description": "Movie tickets",
+    "amount": 18.00,
+    "category": "Entertainment",
+    "date": "2025-01-14",
+    "createdAt": "2025-01-14T19:45:00Z",
+    "updatedAt": "2025-01-14T19:45:00Z"
+  },
+  {
+    "id": "rec_seed_6",
+    "description": "Grocery shopping",
+    "amount": 45.30,
+    "category": "Food",
+    "date": "2025-01-15",
+    "createdAt": "2025-01-15T16:20:00Z",
+    "updatedAt": "2025-01-15T16:20:00Z"
+  },
+  {
+    "id": "rec_seed_7",
+    "description": "Lab equipment fee",
+    "amount": 25.00,
+    "category": "Fees",
+    "date": "2025-01-16",
+    "createdAt": "2025-01-16T10:00:00Z",
+    "updatedAt": "2025-01-16T10:00:00Z"
+  }
+]
