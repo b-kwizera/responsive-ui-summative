@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Configure your currency preferences and spending caps for Student Finance Tracker.">
   <title>Settings - Student Finance Tracker</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -14,15 +14,25 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header>
-    <h1>Student Finance Tracker</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Dashboard</a></li>
-        <li><a href="settings.html" class="active" aria-current="page">Settings</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-      <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <div class="header-container">
+      <div class="logo-section">
+        <span class="app-logo" aria-hidden="true">💠</span>
+        <h1>Student Finance Tracker</h1>
+      </div>
+      <nav id="main-nav">
+        <button id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="settings.html" class="active" aria-current="page">Settings</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
   </header>
 
   <main id="main-content">
@@ -115,7 +125,7 @@
       </form>
       
       <div style="margin-top: 2rem; padding: 1rem; background: var(--color-surface-hover); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary);">
-        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">You MUST know THIS</h3>
+        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">You MUST know THIS!!</h3>
         <p style="margin: 0; color: var(--color-text-muted);">
           Your settings are saved locally in your browser. They won't be lost when you close the tab, but they won't sync across different devices either. Use the export feature on the Dashboard to backup your data!
         </p>
@@ -130,6 +140,6 @@
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
-  <script type="module" src="scripts/ui.js"></script>
+  <script type="module" src="ui.js"></script>
 </body>
 </html>
