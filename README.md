@@ -79,7 +79,7 @@ Student Finance Tracker is a lightweight, privacy-focused web app that helps stu
 
 
 Demo video link: https://www.loom.com/share/8f934ca1901a4059b9430cc777100d70?sid=21a5b452-ff18-452a-a515-f1cd60aa30c9
-Live website link: 
+Live website link: https://b-kwizera.github.io/responsive-ui-summative/
 ---
 
 > Built with ❤️ by Bodgar Kwizera | Vanilla HTML, CSS, and JavaScript
