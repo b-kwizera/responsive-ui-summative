@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Track your finances, manage budgets, and monitor spending with our student-friendly finance tracker. Features include regex search, JSON import/export, and spending caps.">
   <title>Student Finance Tracker - Dashboard</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -15,15 +15,25 @@
 
   <!-- Header / Nav -->
   <header>
-    <h1>Student Finance Tracker</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active" aria-current="page">Dashboard</a></li>
-        <li><a href="settings.html">Settings</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-      <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <div class="header-container">
+      <div class="logo-section">
+        <span class="app-logo" aria-hidden="true">💠</span>
+        <h1>Student Finance Tracker</h1>
+      </div>
+      <nav id="main-nav">
+        <button id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="index.html" class="active" aria-current="page">Dashboard</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
   </header>
 
   <!-- Main content -->
@@ -57,11 +67,40 @@
     <section id="records" aria-labelledby="records-heading">
       <h2 id="records-heading">Transaction Records</h2>
       
-      <!-- Search -->
-      <div id="search">
-        <label for="search-input">🔍 Search (Regex):</label>
-        <input type="text" id="search-input" aria-describedby="search-help" placeholder="e.g., ^Food or coffee.*">
-        <small id="search-help">Type a regex pattern to highlight and filter matches in description and category.</small>
+      <!-- Search, Sort & Filter -->
+      <div class="controls-bar">
+        <div id="search">
+          <label for="search-input">🔍 Search (Regex):</label>
+          <input type="text" id="search-input" aria-describedby="search-help" placeholder="e.g., ^Food or coffee.*">
+          <small id="search-help">Type a regex pattern to highlight and filter matches.</small>
+        </div>
+        
+        <div id="sort-controls">
+          <label for="sort-by">Sort by:</label>
+          <select id="sort-by" aria-label="Sort records by">
+            <option value="date-desc">Date (Newest)</option>
+            <option value="date-asc">Date (Oldest)</option>
+            <option value="amount-desc">Amount (High to Low)</option>
+            <option value="amount-asc">Amount (Low to High)</option>
+            <option value="description-asc">Description (A-Z)</option>
+            <option value="description-desc">Description (Z-A)</option>
+            <option value="category-asc">Category (A-Z)</option>
+          </select>
+        </div>
+        
+        <div id="filter-controls">
+          <label for="filter-category">Filter by:</label>
+          <select id="filter-category" aria-label="Filter records by category">
+            <option value="all">All Categories</option>
+            <option value="Food">Food</option>
+            <option value="Books">Books</option>
+            <option value="Transport">Transport</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Fees">Fees</option>
+            <option value="Other">Other</option>
+          </select>
+          <button id="reset-filters" aria-label="Reset all filters and sorting">Reset</button>
+        </div>
       </div>
       
       <!-- Import/Export -->
@@ -150,6 +189,6 @@
       dateInput.value = new Date().toISOString().split('T')[0];
     }
   </script>
-  <script type="module" src="scripts/ui.js"></script>
+  <script type="module" src="ui.js"></script>
 </body>
 </html>
