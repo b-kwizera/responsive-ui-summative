@@ -25,7 +25,7 @@ Student Finance Tracker is a lightweight, privacy-focused web app that helps stu
 - **Add Record:** Input description, amount, category, and date.
 - **Edit Record:** Modify existing transactions inline.
 - **Delete Record:** Remove transactions with confirmation.
-- **Sort Records:** Automatically sorted by date in the table.
+- **Sort & Filter Records:** Automatically sorted by date in the table.
 - **Regex Search:** Use regular expressions to filter/highlight transactions.
 - **Dark Mode Toggle:** Switch between light/dark themes; persists across sessions.
 - **JSON Import/Export:** Backup or transfer your data safely.
